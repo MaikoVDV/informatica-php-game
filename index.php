@@ -3,9 +3,12 @@
   </head>
   <body>
     <h1>AAAAH PHP AAAAAAAH</h1>
-<?php
-$name = "mijko";
-echo "hi $name";
-?>
+    <form action="welcome.php" method="post">
+      Name: <input type="text" name="name">
+      <input type="submit">
+    </form>
+
+    <?php
+    ?>
   </body>
 </html>
