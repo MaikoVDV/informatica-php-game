@@ -1,0 +1,5 @@
+@import "./modal.css";
+
+#login-container {
+  width: 30%;
+}

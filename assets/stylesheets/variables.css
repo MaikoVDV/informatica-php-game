@@ -1,0 +1,13 @@
+:root {
+  /* Global styling */
+  --page-background: #eeeeee;
+
+  /* Modal styling */
+  --modal-padding: 1rem;
+  --modal-border-radius: 10px;
+  --modal-border: 3px solid #dddddd;
+  --modal-background: #ffffff;
+}
+body {
+  background-color: var(--page-background);
+}

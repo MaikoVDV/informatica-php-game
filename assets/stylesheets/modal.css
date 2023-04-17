@@ -1,0 +1,20 @@
+
+.modal {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+
+  background: var(--modal-background);
+
+  width: 30%;
+  padding: var(--modal-padding);
+  border: var(--modal-border);
+  border-radius: var(--modal-border-radius);
+}
+.modal h1 {
+  text-align: center;
+}
+.modal form input {
+  width: 100%;
+}
