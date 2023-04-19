@@ -3,11 +3,25 @@
   --page-background: #eeeeee;
 
   /* Modal styling */
+  --modal-width: 50%;
   --modal-padding: 1rem;
   --modal-border-radius: 10px;
   --modal-border: 3px solid #dddddd;
   --modal-background: #ffffff;
+  --text-input-padding: 0.5rem;
+  --text-input-border-radius: 10px;
+  --text-input-border: 3px solid #dddddd;
+  --text-input-margin: 0.5rem 0rem;
+
+  /* Coloring */
+  --button-background: #6688ee;
+  --button-color: #88aaff;
+  --button-text-color: #ffffff;
+  --button-font-weight: 500;
+  --button-font-size: 16;
+  --error-color: #ff3333;
 }
 body {
   background-color: var(--page-background);
+  font-family: Arial, Helvetica, sans-serif;
 }

@@ -1,5 +1,6 @@
 @import "./modal.css";
 
-#login-container {
-  width: 30%;
+.error-message {
+  color: var(--error-color);
 }
+

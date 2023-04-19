@@ -7,7 +7,7 @@
 
   background: var(--modal-background);
 
-  width: 30%;
+  width: var(--modal-width);
   padding: var(--modal-padding);
   border: var(--modal-border);
   border-radius: var(--modal-border-radius);
@@ -15,6 +15,23 @@
 .modal h1 {
   text-align: center;
 }
-.modal form input {
+.modal input {
+  padding: var(--text-input-padding);
+  border-radius: var(--text-input-border-radius);
+  border: var(--text-input-border);
+  margin: var(--text-input-margin);
+}
+.modal input[type=text], input[type=password] {
   width: 100%;
+}
+.modal input[type=submit] {
+  background: var(--button-background);
+  border-color: var(--button-color);
+
+  color: var(--button-text-color);
+  font-weight: var(--button-font-weight);
+  font-size: var(--button-font-size);
+  
+  float: right;
+  width: 33%;
 }
