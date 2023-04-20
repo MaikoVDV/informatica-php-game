@@ -9,6 +9,7 @@
   <body>
     <?php
       include("./assets/utils.php");
+      include("./database_manager/db_connect.php");
       $usernameError = $passwordError = "";
       $username = $password = "";
       // Only check for login data if request is POST.
