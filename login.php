@@ -17,7 +17,6 @@
       if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $username = clean_user_input($_POST['username']);
         $password = clean_user_input($_POST['password']);
-        echo "Username: $username, Password: $password";
         if (empty($username)) {
           $usernameError = "Please enter a valid username";
           echo $usernameError;
@@ -26,8 +25,25 @@
           $passwordError = "Please enter a valid password.";
         }
         if ($passwordError === "" && $usernameError === "") {
-          echo "everying ok";
-          redirect("./home.php");
+          echo "Entered Username: $username, Password: $password<br>";
+          // The user has inputted a valid username and password.
+          // Should now ask the database for user info.
+
+          $login_query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+          //$login_query = "SELECT * FROM users";
+          $query_result = mysqli_query($sql_conn, $login_query);
+          if ($query_result) {
+          } else {
+            echo "Query error.";
+          }
+          if ($row = mysqli_fetch_assoc($query_result)) {
+            echo "Found a user:<br>Found username: " .$row["username"] . ", password: ". $row["password"];
+            $_SESSION['user_id'] = $row["id"];
+            $_SESSION['username'] = $row["username"];
+            $_SESSION['password'] = $row["password"];
+
+            redirect("./home.php");
+          }
         }
       } else {
         // GET request.
@@ -38,6 +54,7 @@
         $data = htmlspecialchars($data);
         return $data;
       }
+      
     ?>
     <div class="modal" id="login-container">
       <h1>Login</h1>
