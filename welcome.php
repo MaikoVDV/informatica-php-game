@@ -1,5 +1,8 @@
+<!DOCTYPE html>
 <html>
   <head>
+    <title>Welcome</title>
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
   </head>
   <body>
     <h1>Welcome.php</h1>

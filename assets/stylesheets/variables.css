@@ -3,7 +3,7 @@
   --page-background: #eeeeee;
 
   /* Modal styling */
-  --modal-width: 50%;
+  --modal-width: 75%;
   --modal-padding: 1rem;
   --modal-border-radius: 10px;
   --modal-border: 3px solid #dddddd;
@@ -20,8 +20,26 @@
   --button-font-weight: 500;
   --button-font-size: 16;
   --error-color: #ff3333;
+
+  /* Navbar styling */
+  --navbar-height: 3rem;
+
+  /* Z-Indexes */
+  --navbar-z: 1000;
 }
 body {
   background-color: var(--page-background);
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0px;
+}
+.main-content-wrapper {
+  width: 66%;
+  transform: translateX(-50%);
+  left: 50%;
+  position: absolute;
+  top: var(--navbar-height);
+  height: calc(100% - var(--navbar-height));
+}
+* {
+  box-sizing: border-box;
 }

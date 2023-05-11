@@ -14,20 +14,4 @@
   }
   $_SESSION['sql_conn'] = $sql_conn;
   mysqli_select_db($sql_conn, "informatica-site");
-  // $sql_query = "SELECT username FROM users";
-  // $query_result = mysqli_query($sql_conn, $sql_query);
-  // if ($query_result) {
-  // } else {
-  //   echo "Query error.";
-  // }
-  // while ($row = mysqli_fetch_assoc($query_result)) {
-  //   echo "username: " . $row["username"] . "<br>";
-  // }
-  //if ($sql_conn->query($sql_query) === TRUE) {
-  //  echo "Query completed.";
-  //} else {
-  //  echo "Failed to send query.";
-  //}
-
-  //$sql_conn->close();
 ?>
