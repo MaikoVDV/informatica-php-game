@@ -1,4 +1,4 @@
-@import "./modal.css";
+@import "../modal.css";
 
 .error-message {
   color: var(--error-color);

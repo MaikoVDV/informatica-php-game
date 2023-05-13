@@ -1,10 +1,8 @@
 <?php
 include("./assets/utils.php");
 include("./database_manager/db_connect.php");
-ini_set('session.cache_limiter', 'public');
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
-session_cache_limiter(false);
 
 function clean_user_input($data)
 {
@@ -21,7 +19,7 @@ function clean_user_input($data)
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
 
     <link rel="stylesheet" href="./assets/stylesheets/variables.css">
-    <link rel="stylesheet" href="./assets/stylesheets/page_register.css">
+    <link rel="stylesheet" href="./assets/stylesheets/pages/page_register.css">
   </head>
   <body>
     <?php include("./components/navbar.php"); ?>

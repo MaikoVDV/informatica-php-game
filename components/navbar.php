@@ -8,6 +8,9 @@
       <a href="./home.php">Home</a>
     </div>
     <div class="navbar-link">
+      <a href="./new-game.php">New game</a>
+    </div>
+    <div class="navbar-link">
       <a href="./login.php">Login</a>
     </div>
     <div class="navbar-link">

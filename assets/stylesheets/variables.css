@@ -14,12 +14,19 @@
   --text-input-margin: 0.5rem 0rem;
 
   /* Coloring */
-  --button-background: #6688ee;
-  --button-color: #88aaff;
-  --button-text-color: #ffffff;
+  --global-primary-color: #88aaff;
+  --global-secondary-color: #6688ee;
+  --global-tertiary-color: #5e7ddb;
+  --confirm-button-background: var(--global-secondary-color);
+  --confirm-button-color: var(--global-primary-color);
+  --confirm-button-border-color: var(--global-tertiary-color);
+  --confirm-button-text-color: #ffffff;
   --button-font-weight: 500;
   --button-font-size: 16;
   --error-color: #ff3333;
+
+  /* Animation */
+  --hover-transition-duration: 0.3s;
 
   /* Navbar styling */
   --navbar-height: 3rem;

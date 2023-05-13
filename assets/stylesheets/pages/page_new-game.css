@@ -1,0 +1,39 @@
+.big-button {
+  height: 100%;
+  aspect-ratio: 1/1;
+
+  border-radius: 1em;
+  border: 0.3em solid var(--global-tertiary-color);
+  background: white;
+  transition: var(--hover-transition-duration);
+}
+.big-button:hover {
+  background: var(--global-secondary-color);
+}
+.big-button p {
+  text-align: center;
+  color: black;
+}
+.big-button:hover p {
+  color: white;
+}
+.gamemode-title {
+  font-weight: 700;
+  font-size: 18px;
+}
+.gamemode-description {
+  font-weight: 400;
+  font-size: 14px;
+}
+#gamemode-button-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  height: 30%;
+
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
