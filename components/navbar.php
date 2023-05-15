@@ -4,18 +4,32 @@
     @import "./assets/stylesheets/navbar.css";
   </style>
   <nav class="navbar">
-    <div class="navbar-link">
-      <a href="./home.php">Home</a>
+    <div id="main-links">
+      <div class="navbar-link">
+        <a href="./home.php">Home</a>
+      </div>
+      <div class="navbar-link">
+        <a href="./new-game.php">Create game</a>
+      </div>
+      <div class="navbar-link">
+        <a href="./join-game.php">Join game</a>
+      </div>
+      <div class="navbar-link">
+        <a href="./public-games-list.php">Public games</a>
+      </div>
     </div>
-    <div class="navbar-link">
-      <a href="./new-game.php">New game</a>
+    <?php if (isset($_SESSION["username"])): ?>
+    <div><?php echo $_SESSION["username"]; ?></div>
+    <?php else: ?>
+    <div id="account-links">
+      <div class="navbar-link">
+        <a href="./login.php">Login</a>
+      </div>
+      <div class="navbar-link">
+        <a href="./register.php">Register</a>
+      </div>
     </div>
-    <div class="navbar-link">
-      <a href="./login.php">Login</a>
-    </div>
-    <div class="navbar-link">
-      <a href="./register.php">Register</a>
-    </div>
+    <?php endif; ?>
   </nav>
 </body>
 </html>

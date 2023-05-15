@@ -1,0 +1,68 @@
+.big-select {
+  width: 47%;
+  aspect-ratio: 1/1;
+
+  border-radius: 1em;
+  border: 0.3em solid var(--global-tertiary-color);
+  background: white;
+  transition: var(--hover-transition-duration);
+  display: block;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  background: white;
+}
+.text-container {
+  position: relative;
+  transform: translateY(-50%);
+  top: 50%;
+  height: 100%;
+  padding: 0.5rem;
+
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* margin: 0 1rem; */
+  /* justify-content: space-between; */
+}
+.big-select p {
+  text-align: center;
+  color: black;
+  margin: 0px;
+  position: relative;
+}
+.gamemode-title {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 0.5rem;
+  top: 25%;
+}
+.gamemode-description {
+  font-weight: 400;
+  font-size: 14px;
+  top: 30%;
+}
+
+/* Respond to mouse hovering over the select option */
+.big-select:hover {
+  background: var(--global-secondary-color);
+}
+.big-select:hover p {
+  color: white;
+}
+
+/* When the radio button is checked, change the colors */
+.big-select.active {
+  background-color: var(--global-tertiary-color) !important;
+}
+.big-select.active p {
+  color: white;
+}
+
+/* Hide the actual radio input */
+.big-select input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}

@@ -1,0 +1,17 @@
+button,
+input[type=submit] {
+  padding: var(--text-input-padding);
+  border-radius: var(--text-input-border-radius);
+  border: var(--text-input-border);
+  margin: var(--text-input-margin);
+
+  background: var(--confirm-button-background);
+  border-color: var(--confirm-button-border-color);
+
+  color: var(--confirm-button-text-color);
+  font-weight: var(--button-font-weight);
+  font-size: var(--button-font-size);
+  
+  float: right;
+  min-width: 33%;
+}

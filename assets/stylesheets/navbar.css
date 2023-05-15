@@ -8,8 +8,17 @@
 
   display: inline-flex;
   align-items: center;
+  justify-content: space-between;
 
   background: white;
+}
+#account-links {
+  display: inline-flex;
+  align-items: right;
+}
+#main-links {
+  display: inline-flex;
+  align-items: left;
 }
 .navbar-link {
   padding: 0.5rem; 
