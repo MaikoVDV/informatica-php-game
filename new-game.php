@@ -36,7 +36,7 @@ include("./assets/utils.php");
 // Need a user_id to create a game. Redirect if user is not logged in.
 $user_id = $_SESSION["user_id"];
 if (is_null($user_id)) {
-  redirect("./login.php");
+  redirect_error("./login.php", "You need to log in to create a game.");
 }
 
 $gamemodeError = "";

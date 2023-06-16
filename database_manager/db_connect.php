@@ -1,6 +1,6 @@
 <?php
   session_start();
-  $env = parse_ini_file('.env');
+  $env = parse_ini_file($_SERVER['DOCUMENT_ROOT'].'/informatica-php-website/.env');
 
   $server_address = $env["SERVER_ADDRESS"];
   $username = $env["SQL_USERNAME"];
@@ -12,6 +12,6 @@
     echo "Failed to connect.";
     //die("Failed to connect to database: " . $sql_conn->connect_error);
   }
-  $_SESSION['sql_conn'] = $sql_conn;
+  //$_SESSION['sql_conn'] = $sql_conn;
   mysqli_select_db($sql_conn, "informatica-site");
 ?>

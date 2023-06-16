@@ -19,7 +19,9 @@
       </div>
     </div>
     <?php if (isset($_SESSION["username"])): ?>
-    <div><?php echo $_SESSION["username"]; ?></div>
+    <div class="navbar-link">
+      <a href="./login.php"><?php echo $_SESSION["username"]; ?></a>
+    </div>
     <?php else: ?>
     <div id="account-links">
       <div class="navbar-link">

@@ -1,0 +1,29 @@
+#answer-button-container {
+  height: 30%;
+  width: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-evenly;
+}
+.big-select {
+  width: 50% !important;
+  aspect-ratio: auto !important;
+}
+/* Hiding the submit button */
+.big-select>input[type=submit] {
+  visibility: hidden;
+}
+.user-container {
+  background: lightgrey;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+
+  border-radius: var(--player-list-border-radius);
+  border: var(--player-list-border);
+}
+.user-container p {
+  margin: 0px;
+}

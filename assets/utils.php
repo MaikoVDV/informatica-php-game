@@ -9,4 +9,7 @@
     header("Location: $redirect_url?error='$error'");
     die();
   }
+  function refresh() {
+    header("Refresh:0");
+  }
 ?>

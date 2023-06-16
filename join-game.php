@@ -18,9 +18,15 @@ session_cache_limiter(false);
 <?php
 session_start();
 include("./components/navbar.php");
+include("./assets/utils.php");
+require("./database_manager/join_game_function.php");
+
+if(empty($_SESSION['user_id'])) {
+  // User is not logged in.
+  redirect_error("./login.php", "You need to log in to join a game.");
+}
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
-  include("./assets/utils.php");
   require "./database_manager/db_connect.php";
 
   $entered_code = $_POST['entered_code'];
@@ -28,13 +34,15 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     redirect_error("./join-game.php", "Please enter a join code. It should be a 6-digit number.");
   }
   echo "Entered code: $entered_code<br>";
-  // The game has been created. Redirect to the lobby for that game.
   $lobby_code_query = "SELECT host_user, access_group FROM current_games WHERE join_code=$entered_code";
   try {
     $lobby_code_result = mysqli_query($sql_conn, $lobby_code_query);
     $rows_amount = mysqli_num_rows($lobby_code_result);
     if ($rows_amount > 0) {
       if ($row = mysqli_fetch_assoc($lobby_code_result)) {
+        // A game has been found with the join code.
+        join_game($sql_conn, $entered_code);
+
         $host_user = $row['host_user'];
         $access_group = $row['access_group'];
         echo "Found a game created by $host_user with access_group: ".$access_group;

@@ -18,11 +18,6 @@
   top: 50%;
   height: 100%;
   padding: 0.5rem;
-
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* margin: 0 1rem; */
-  /* justify-content: space-between; */
 }
 .big-select p {
   text-align: center;

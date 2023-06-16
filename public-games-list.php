@@ -28,16 +28,18 @@ require "./database_manager/db_connect.php";
 <?php
 // The game has been created. Redirect to the lobby for that game.
 $lobby_query = "
-  SELECT current_games.join_code, users.username 
+  SELECT current_games.join_code, users.username, question_categories.name 
   FROM current_games 
   INNER JOIN users ON current_games.host_user=users.id
+  INNER JOIN question_categories ON current_games.question_category=question_categories.id
   WHERE access_group='Multiplayer'"; 
 try {
   $lobby_query_result = mysqli_query($sql_conn, $lobby_query);
   while ($row = mysqli_fetch_assoc($lobby_query_result)) {
     $host_user = $row['username'];
     $join_code = $row['join_code'];
-    echo "Found a game created by $host_user. Join code: ".$join_code."<br>";
+    $category = $row['name'];
+    echo "Created by $host_user. Category: $category | Join code: $join_code"."<br>";
   }
 } catch (Exception $e) {
   echo $e;

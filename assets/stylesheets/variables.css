@@ -33,6 +33,10 @@
   /* Navbar styling */
   --navbar-height: 3rem;
 
+  /* Player list styling */
+  --player-list-border-radius: 10px;
+  --player-list-border: 3px solid #dddddd;
+
   /* Z-Indexes */
   --navbar-z: 1000;
 }

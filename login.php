@@ -66,6 +66,7 @@ function clean_user_input($data)
       <div class="modal" id="login-container">
         <h1>Login</h1>
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
+          <span class="error-message"><?php if(isset($_GET["error"])) { echo "Error: ".$_GET["error"]; } ?></span>
           <input type="text" name="username" placeholder="Username"> 
           <span class="error-message"><?php echo "$usernameError"; ?></span>
           <input type="password" name="password" placeholder="Password"> 

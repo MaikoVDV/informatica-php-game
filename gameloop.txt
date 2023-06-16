@@ -1,0 +1,4 @@
+0. Players join a lobby and wait for the host to start the game.
+1. The question appears on screen and a time is set for possible answers to appear.
+2. The possible answers appear and the players have 10 seconds to answer.
+3. Once the end time is reached, the correct answers are shown for 5 seconds, then the next question will appear.
