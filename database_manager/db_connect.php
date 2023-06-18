@@ -1,5 +1,5 @@
 <?php
-  session_start();
+  // session_start();
   $env = parse_ini_file($_SERVER['DOCUMENT_ROOT'].'/informatica-php-website/.env');
 
   $server_address = $env["SERVER_ADDRESS"];

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// error_reporting(E_ALL);
 
-ini_set('session.cache_limiter', 'public');
-session_cache_limiter(false);
+// ini_set('session.cache_limiter', 'public');
+// session_cache_limiter(false);
 ?>
 <html>
   <head>
@@ -27,12 +27,13 @@ require "./database_manager/db_connect.php";
         <h1>Games</h1>
 <?php
 // The game has been created. Redirect to the lobby for that game.
-$lobby_query = "
-  SELECT current_games.join_code, users.username, question_categories.name 
+$lobby_query = 
+" SELECT current_games.join_code, users.username, question_categories.name 
   FROM current_games 
   INNER JOIN users ON current_games.host_user=users.id
   INNER JOIN question_categories ON current_games.question_category=question_categories.id
-  WHERE access_group='Multiplayer'"; 
+  WHERE `access_group`='Multiplayer'
+  AND `game_state` <> 'Ended'"; 
 try {
   $lobby_query_result = mysqli_query($sql_conn, $lobby_query);
   while ($row = mysqli_fetch_assoc($lobby_query_result)) {

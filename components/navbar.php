@@ -6,16 +6,16 @@
   <nav class="navbar">
     <div id="main-links">
       <div class="navbar-link">
-        <a href="./home.php">Home</a>
-      </div>
-      <div class="navbar-link">
-        <a href="./new-game.php">Create game</a>
+        <a href=".">Home</a>
       </div>
       <div class="navbar-link">
         <a href="./join-game.php">Join game</a>
       </div>
       <div class="navbar-link">
-        <a href="./public-games-list.php">Public games</a>
+        <a href="./new-game.php">Create game</a>
+      </div>
+      <div class="navbar-link">
+        <a href="./public-games-list.php">Lobby list</a>
       </div>
     </div>
     <?php if (isset($_SESSION["username"])): ?>

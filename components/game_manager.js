@@ -30,7 +30,7 @@ function fetchQuestionSSE(joinCode, currentQuestion) {
       username = user[0];
       selectedAnswer = user[1]
       // console.log(`Username: ${username}, Selected answer: ${selectedAnswer}`)
-      let userContainer = document.createElement('div');
+      let userContainer = document.createElement('li');
       userContainer.classList.add("user-container")
 
       let usernameDisplay = document.createElement('p');

@@ -1,0 +1,4 @@
+input[type=submit] {
+    float: left;
+    min-width: unset;
+}

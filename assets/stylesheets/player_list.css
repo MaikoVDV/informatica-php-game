@@ -1,0 +1,19 @@
+.player-list {
+    list-style: none;
+
+    padding: 0px;
+}
+.player-list > li {
+    margin: var(--player-list-margin);
+    background: var(--player-list-background);
+    padding: var(--player-list-padding);
+    border-radius: var(--player-list-border-radius);
+    border: var(--player-list-border);
+
+    display: flex;
+    justify-content: space-between;
+}
+.player-list > li > * {
+    margin: 0px;
+    padding: 0px;
+}

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// error_reporting(E_ALL);
 
-ini_set('session.cache_limiter', 'public');
-session_cache_limiter(false);
+// ini_set('session.cache_limiter', 'public');
+// session_cache_limiter(false);
 ?>
 <html>
   <head>
@@ -42,11 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
       if ($row = mysqli_fetch_assoc($lobby_code_result)) {
         // A game has been found with the join code.
         join_game($sql_conn, $entered_code);
-
-        $host_user = $row['host_user'];
-        $access_group = $row['access_group'];
-        echo "Found a game created by $host_user with access_group: ".$access_group;
-        redirect("./lobby.php?join_code=$entered_code");
       }
     } else {
       // Couldn't find a game with the code entered.

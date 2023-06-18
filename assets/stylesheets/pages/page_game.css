@@ -15,15 +15,3 @@
 .big-select>input[type=submit] {
   visibility: hidden;
 }
-.user-container {
-  background: lightgrey;
-  display: flex;
-  justify-content: space-between;
-  padding: 0.5rem;
-
-  border-radius: var(--player-list-border-radius);
-  border: var(--player-list-border);
-}
-.user-container p {
-  margin: 0px;
-}

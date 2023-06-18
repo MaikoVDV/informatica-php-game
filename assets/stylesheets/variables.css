@@ -35,7 +35,10 @@
 
   /* Player list styling */
   --player-list-border-radius: 10px;
-  --player-list-border: 3px solid #dddddd;
+  --player-list-border: 5px solid #eee;
+  --player-list-background: white;
+  --player-list-margin: 0.5rem 0px;
+  --player-list-padding: 1rem 0.5rem;
 
   /* Z-Indexes */
   --navbar-z: 1000;

@@ -1,8 +1,8 @@
 <?php
 include("./assets/utils.php");
 include("./database_manager/db_connect.php");
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// error_reporting(E_ALL);
 
 function clean_user_input($data)
 {
@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             };
         }
         if (empty($serverError)) {
-            echo "Database query successful!";
+            redirect("./login.php");
         }
         //if ($row = mysqli_fetch_assoc($query_result)) {
         //  //echo "Found a user:<br>Found username: " .$row["username"] . ", password: ". $row["password"];

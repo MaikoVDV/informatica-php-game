@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// error_reporting(E_ALL);
 
 session_start();
 require("./database_manager/db_connect.php");
@@ -22,6 +22,7 @@ include("./database_manager/next_question.php");
     <link rel="stylesheet" href="./assets/stylesheets/big_select.css">
     <link rel="stylesheet" href="./assets/stylesheets/button.css">
     <link rel="stylesheet" href="./assets/stylesheets/modal.css">
+    <link rel="stylesheet" href="./assets/stylesheets/player_list.css">
     <link rel="stylesheet" href="./assets/stylesheets/variables.css">
 
     <script src="./components/game_manager.js"></script>
@@ -52,8 +53,8 @@ $question = fetch_question($sql_conn, $join_code);
 
 if($_SERVER['REQUEST_METHOD'] === "POST") {
   // If the user has answered the question, update the database with their answer.
-  $selected_answer = $_POST['selected_answer'];
-  if (isset($selected_answer)) {
+  if (isset($_POST['selected_answer'])) {
+    $selected_answer = $_POST['selected_answer'];
     $escaped_answer = mysqli_real_escape_string($sql_conn, $selected_answer);
     $submit_answer_query = "
       UPDATE `users`
@@ -74,29 +75,39 @@ if($_SERVER['REQUEST_METHOD'] === "POST") {
   } 
 }
 
+// Check if the user has answered the question already, and hide the buttons if so.
+$check_answered_query = "SELECT `selected_answer` from `users` WHERE `id`='$user_id'";
+$check_answered_result = mysqli_query($sql_conn, $check_answered_query);
 
+$already_answered = mysqli_fetch_assoc($check_answered_result)["selected_answer"] != null;
 check_next_question($sql_conn, $join_code);
 
 $form_url = htmlspecialchars($_SERVER['PHP_SELF'])."?id=$join_code";
 ?>
+<h3 style="margin-bottom: 0px"><?php echo "Question " . $question->current_game_index+1 . "/" . $question->total_questions; ?></h3>
+<?php if(!$already_answered): ?>
       <form class="" method="post" action="<?php echo $form_url; ?>">
           <span class="error-message"><?php if (isset($_GET['error'])) { echo "Error: " . $_GET['error']; } ?></span>
           <h1><?php echo $question->title; ?></h1>
+          <h2><?php echo $question->sub_title; ?></h2>
           <div id="answer-button-container">
             <?php foreach($question->answers as &$possible_answer): ?>
-              <label class="big-select">
-                <div class="text-container">
-                  <p class="gamemode-title"><?= $possible_answer; ?></p>
-                </div>
-                <input type="submit" value="<?php echo $possible_answer; ?>" name="selected_answer">
-              </label>
+              <?php if($possible_answer !== ""): ?>
+                <label class="big-select">
+                  <div class="text-container">
+                    <p class="gamemode-title"><?= $possible_answer; ?></p>
+                  </div>
+                  <input type="submit" value="<?php echo $possible_answer; ?>" name="selected_answer">
+                </label>
+              <?php endif; ?>
             <?php endforeach; ?>
           </div>
       </form>
+<?php endif; ?>
       <div>
         <h2>Waiting for</h2>
-        <div id="blank-users-list">
-        </div>
+        <ul id="blank-users-list" class="player-list">
+            </ul>
       </div>
       <script defer>
         //fetchUsers(<?php echo $join_code; ?>);

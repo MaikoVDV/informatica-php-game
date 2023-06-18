@@ -1,0 +1,4 @@
+#leaderboard > li:first-child {
+    background: rgb(255,236,140);
+    background: linear-gradient(180deg, rgba(255,236,140,1) 0%, rgba(255,216,12,1) 10%, rgba(255,179,0,1) 90%, rgba(240,132,0,1) 100%);
+}

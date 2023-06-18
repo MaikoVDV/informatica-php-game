@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <?php
 session_start();
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// error_reporting(E_ALL);
 
-ini_set('session.cache_limiter', 'public');
-session_cache_limiter(false);
+// ini_set('session.cache_limiter', 'public');
+// session_cache_limiter(false);
 ?>
 <html>
   <head>
@@ -13,6 +13,8 @@ session_cache_limiter(false);
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
 
     <link rel="stylesheet" href="./assets/stylesheets/variables.css">
+    <link rel="stylesheet" href="./assets/stylesheets/button.css">
+    <link rel="stylesheet" href="./assets/stylesheets/pages/page_lobby.css">
 
     <script src="./components/lobby_manager.js"></script>
     <!-- Ajax for making API calls -->

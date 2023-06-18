@@ -18,8 +18,8 @@ require "./assets/utils.php";
 require "./database_manager/db_connect.php";
 require "./database_manager/auth.php";
 
-ini_set('session.cache_limiter', 'public');
-session_cache_limiter(false);
+// ini_set('session.cache_limiter', 'public');
+// session_cache_limiter(false);
 
 $usernameError = $passwordError = "";
 $username = $password = "";
@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     if ($row = mysqli_fetch_assoc($query_result)) {
       //echo "Found a user:<br>Found username: " .$row["username"] . ", password: ". $row["password"];
       setCredentials($row["id"], $row["username"], $row["password"]);
-      redirect("./home.php");
+      redirect(".");
     }
   }
 } else {
