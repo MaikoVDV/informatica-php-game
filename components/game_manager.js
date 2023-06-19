@@ -26,6 +26,7 @@ function fetchQuestionSSE(joinCode, currentQuestion) {
     // console.log(JSON.parse(event.data));
 
     let userList = document.createElement('div'); 
+    userList.classList.add("player-list");
     JSON.parse(event.data).forEach(user => {
       username = user[0];
       selectedAnswer = user[1]

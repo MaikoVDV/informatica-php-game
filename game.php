@@ -106,7 +106,7 @@ $form_url = htmlspecialchars($_SERVER['PHP_SELF'])."?id=$join_code";
 <?php endif; ?>
       <div>
         <h2>Waiting for</h2>
-        <ul id="blank-users-list" class="player-list">
+        <ul id="blank-users-list" style="padding: 0px;">
             </ul>
       </div>
       <script defer>
