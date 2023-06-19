@@ -45,6 +45,14 @@ Due to a lack of a router in PHP, all of the pages are are at the root of the re
 
 In lobby.php and game.php, there needs to be a constant connection to the server for getting information about the other users in the game. To achieve this, the client connects to either [api/SSE_manager.php](api/SSE_manager.php) or [api/game_manager.php](api/game_manager.php), and creates a Server-Sent Events connection.
 
+Both files have some functions in separate files stored in ([api/functions](api/functions)) for better organisation. Files for the client interacting with the database are stored in [database_manager](database_manager), with the connection function being in [database_manager/db_connect.php](database_manager/db_connect.php).
+
+All styling is done in [assets/stylesheets](assets/stylesheets), organised by the elements the styles are used on. Some pages require specific styles, which are stored in [assets/stylesheets/pages/page_[PAGENAME]](assets/stylesheets/pages).
+
+Credentials for the database are stored in `.env`, but that file isn't included in this repository for security reasons.
+
+If you want a more in-depth look at the code, I've included some comments to get a rough idea of whats happening. But again, this project is quite disorganised, so I'm limited in the clarity I can provide.
+
 ### Things learned
 * Server-Sent Events  
   Basically a one-way connection to stream data from the server to a client. Used for lists of users in the lobby and the game
@@ -55,9 +63,3 @@ In lobby.php and game.php, there needs to be a constant connection to the server
   Again, this was my first PHP project, so I learned a lot. I've done some stuff with server-side rendering before, so I was familiar with the concept, but that was with a JavaScript framework, not with PHP.
 * Webhosting is painful  
   I tried using infinity free, but apparently they block Server-Sent Events, so now the multiplayer is broken and my presentation probably wont be as good. :(
-
-Both files have some functions in separate files stored in ([api/functions](api/functions)) for better organisation. Files for the client interacting with the database are stored in [database_manager](database_manager), with the connection function being in [database_manager/db_connect.php](database_manager/db_connect.php).
-
-All styling is done in [assets/stylesheets](assets/stylesheets), organised by the elements the styles are used on. Some pages require specific styles, which are stored in [assets/stylesheets/pages/page_[PAGENAME]](assets/stylesheets/pages).
-
-Credentials for the database are stored in `.env`, but that file isn't included in this repository for security reasons.
