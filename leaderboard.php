@@ -28,13 +28,15 @@ include("./components/navbar.php");
 $join_code = $_GET['id'];
 $user_id = $_SESSION['user_id'];
 
-// Fetch users and correct answers
+// Fetch users and amount correct answers
 $leaderboard_query = 
  "SELECT username, correct_answers
   FROM `users`
   WHERE `current_game`=$join_code
   ORDER BY correct_answers DESC;
 ";
+// $leaderboard is an array with associative arrays. So it looks like
+// [[user1, 3], [user2, 4], [user3, 1]]
 $leaderboard_result = mysqli_query($sql_conn, $leaderboard_query);
 $leaderboard = mysqli_fetch_all($leaderboard_result);
 ?>

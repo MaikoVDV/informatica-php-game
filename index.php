@@ -15,25 +15,6 @@ include("./components/navbar.php");
       <?php
         include("./assets/utils.php");
         include("./database_manager/db_connect.php");
-      
-        // $username = $_SESSION["username"];
-        // $password = $_SESSION["password"];
-        // $user_id = $_SESSION["user_id"];
-        // if (is_null($username)) {
-        //   redirect("./login.php");
-        // }
-      
-        // echo "Hello $username, your highly-secure password is $password.<br>";
-      
-        // $msg_query = "SELECT content FROM posted_messages WHERE author_id=$user_id";
-        // $queried_messages = mysqli_query($sql_conn, $msg_query);
-      
-        // echo "Messages posted by you: <br>";
-        // echo "<ul>";
-        // while ($row = mysqli_fetch_assoc($queried_messages)) {
-        //   echo "<li>" . $row['content'] . "</li>";
-        // }
-        // echo "</ul>";
       ?>
       <h1>Welcome to my Kahoot ripoff</h1>
       <p>You can play quizzes here with friends (or alone, if you don't have friends). If you think that something is broken with the website, remember: <i>it's a feature, not a bug</i>.</p>

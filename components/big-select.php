@@ -1,4 +1,6 @@
 <?php
+// Stores the data for big-select buttons.
+// Thought I'd use these in more parts of the website, but only ended up using them in new-game.php for selecting Singleplayer or Multiplayer.
 class SelectOption {
   public $title;
   public $description;
@@ -8,9 +10,3 @@ class SelectOption {
   }
 }
 ?>
-<!--
-<a class="big-button">
-  <p class="gamemode-title">Singleplayer</p>
-  <p class="gamemode-description">Play alone with pre-made questions</p>
-</a>
--->

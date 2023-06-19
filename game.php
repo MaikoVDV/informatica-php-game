@@ -18,6 +18,7 @@ include("./database_manager/next_question.php");
     <title>Game</title>
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
 
+    <!-- Importing styles -->
     <link rel="stylesheet" href="./assets/stylesheets/pages/page_game.css">
     <link rel="stylesheet" href="./assets/stylesheets/big_select.css">
     <link rel="stylesheet" href="./assets/stylesheets/button.css">
@@ -32,6 +33,7 @@ include("./database_manager/next_question.php");
 <?php
 $join_code = $_GET['id'];
 $user_id = $_SESSION['user_id'];
+// $game_data is probably not needed, but I'm afraid of removing it because something will inevitably break.
 $game_data = unserialize($_SESSION['game_data']);
 
 // Updating game state to send other clients to game.php
@@ -44,7 +46,7 @@ if($game_data->host_username === $_SESSION['username']) {
   try {
     $state_update_result = mysqli_query($sql_conn, $game_state_update_query);
   } catch (Exception $e) {
-
+    // Empty catch block because I like living on the edge.
   } 
 }
 
@@ -63,8 +65,8 @@ if($_SERVER['REQUEST_METHOD'] === "POST") {
     ";
     mysqli_query($sql_conn, $submit_answer_query);
 
+    // User entered the correct answer.
     if ($question->answers[$question->correct_answer - 1] === $selected_answer) {
-      // User entered the correct answer.
       $correct_answer_query = "
         UPDATE `users`
         SET `correct_answers` = correct_answers + 1
@@ -80,6 +82,7 @@ $check_answered_query = "SELECT `selected_answer` from `users` WHERE `id`='$user
 $check_answered_result = mysqli_query($sql_conn, $check_answered_query);
 
 $already_answered = mysqli_fetch_assoc($check_answered_result)["selected_answer"] != null;
+// Check if all other users have answered the question, and move to the next one if so.
 check_next_question($sql_conn, $join_code);
 
 $form_url = htmlspecialchars($_SERVER['PHP_SELF'])."?id=$join_code";
@@ -105,14 +108,15 @@ $form_url = htmlspecialchars($_SERVER['PHP_SELF'])."?id=$join_code";
       </form>
 <?php endif; ?>
       <div>
+        <!-- Blank user list will be filled with usernames by components/game_manager.js,
+        Shows which users have (or haven't) answered the question. -->
         <h2>Waiting for</h2>
         <ul id="blank-users-list" style="padding: 0px;">
             </ul>
       </div>
       <script defer>
-        //fetchUsers(<?php echo $join_code; ?>);
+        // Ask components/game_manager.js to check which users have answered the question.
         fetchQuestionSSE(<?php echo $join_code; ?>, <?php echo $question->current_game_index ?>);
-        // setInterval(fetchUsers, 5000, <?php echo $join_code ?>);
       </script>
     </div>
   </body>

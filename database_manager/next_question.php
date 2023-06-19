@@ -25,6 +25,7 @@ function check_next_question($sql_conn, $join_code) {
     ";
     mysqli_query($sql_conn, $next_question_query);
     mysqli_query($sql_conn, $clear_answers_query);
+    // Function in assets/utils.php that does exactly what it sounds like.
     refresh();
   }
 }

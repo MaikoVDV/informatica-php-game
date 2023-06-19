@@ -12,6 +12,7 @@ function join_game($sql_conn, $join_code) {
     // No valid game found.
     redirect_error("./join-game.php", "Couldn't join the game. Maybe it has ended...?");
   } else {
+    // Joining the game by updating the current_game foreign key of the user.
     $join_lobby_query = "
       UPDATE users
       SET current_game = $join_code, correct_answers = 0, selected_answer = NULL

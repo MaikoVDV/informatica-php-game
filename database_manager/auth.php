@@ -1,5 +1,5 @@
 <?php
-
+// Lil' convencience function. Thought I'd add more in this file but never really did.
 function setCredentials($id, $username, $password)
 {
     session_start();
