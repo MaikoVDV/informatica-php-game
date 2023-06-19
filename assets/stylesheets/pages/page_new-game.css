@@ -10,12 +10,16 @@
 }
 
 .gamemode-button {
-  transition: background-image 0.3s;
+  transition: background-size 0.3s;
+  background-size: 0 0;
+}
+#gamemode_select_Singleplayer.active,
+#gamemode_select_Singleplayer:hover {
+  background-image: url("../../images/Bikos\ Vriendje.jpg");
   background-size: contain !important;
 }
-#gamemode_select_Singleplayer:hover {
-  background: url("../../images/Bikos\ Vriendje.jpg");
-}
+#gamemode_select_Multiplayer.active,
 #gamemode_select_Multiplayer:hover {
-  background: url("../../images/Lieverds.jpg");
+  background-image: url("../../images/Lieverds.jpg");
+  background-size: contain !important;
 }

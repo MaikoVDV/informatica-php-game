@@ -13,5 +13,5 @@
     //die("Failed to connect to database: " . $sql_conn->connect_error);
   }
   //$_SESSION['sql_conn'] = $sql_conn;
-  mysqli_select_db($sql_conn, "informatica-site");
+  mysqli_select_db($sql_conn, $db_name);
 ?>

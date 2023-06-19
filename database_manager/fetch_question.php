@@ -30,9 +30,6 @@ function fetch_question($sql_conn, $join_code) {
     }
     $row = $questions[$current_q_index['current_question']];
 
-    // if (is_null($row['sub_title'])) {
-    //   $row['sub_title'] = "";
-    // }
 
     return new Question(
       $row['title'],
