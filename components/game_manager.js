@@ -1,3 +1,5 @@
+// Create an open connection between the client and the server for getting data on the 
+// question and users that have or haven't answered the question.
 function fetchQuestionSSE(joinCode, currentQuestion) {
   const userListContainer = document.getElementById("blank-users-list");
   const evtSource = new EventSource(`./api/game_manager.php?join_code=${joinCode}`);
@@ -11,7 +13,8 @@ function fetchQuestionSSE(joinCode, currentQuestion) {
     console.log("Connection to server opened.");
   };
 
-  // Update gamestate
+  // If client is displaying a different question than it is supposed to (because the current_question has changed in the database),
+  // Reload the page to get the new question.
   evtSource.addEventListener("current_question", (event) => {
     const data = JSON.parse(event.data);
     if (currentQuestion != data) {
@@ -21,9 +24,8 @@ function fetchQuestionSSE(joinCode, currentQuestion) {
 
   // Receives list of users that haven't answered the question yet.
   evtSource.addEventListener("blank_users", (event) => {
-    // console.log(JSON.parse(event.data));
-
     let userList = document.createElement('div'); 
+    userList.classList.add("player-list");
     JSON.parse(event.data).forEach(user => {
       username = user[0];
       selectedAnswer = user[1];
@@ -42,6 +44,7 @@ function fetchQuestionSSE(joinCode, currentQuestion) {
     })
     userListContainer.replaceChild(userList, userListContainer.firstChild);
   })
+  // If a message is received without an event tag, log it in the console for debugging.
   evtSource.onmessage = (event) => {
     console.log(event.data);
   };

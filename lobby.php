@@ -32,6 +32,7 @@ if (empty($join_code)) {
 }
 
 try {
+  // Combine data from current_games and users to display at top of page.
   $current_game_query = "
     SELECT current_games.join_code, users.username, question_categories.name
     FROM current_games 
@@ -39,6 +40,7 @@ try {
     INNER JOIN question_categories ON current_games.question_category=question_categories.id
     WHERE join_code=$join_code";
   $current_game_result = mysqli_query($sql_conn, $current_game_query);
+
   if (mysqli_num_rows($current_game_result) <= 0) {
     // There isn't a game with the code entered.
     $error = "Failed to get data for the game with code: $join_code";

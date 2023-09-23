@@ -1,3 +1,6 @@
+// Fetch the users that have entered the lobby by creating an open connection to the server.
+// Server sends updates every few seconds.
+// Also checks if the game has started, and redirects to game.php if so.
 function fetchUsersSSE(joinCode) {
   const userListContainer = document.getElementById("users-list");
   const evtSource = new EventSource(`./api/SSE_manager.php?join_code=${joinCode}`);
@@ -16,18 +19,16 @@ function fetchUsersSSE(joinCode) {
     const gameState = data.state;
     switch(gameState) {
       case "Lobby":
-        console.log("State is 'Lobby'");
-        console.log(data.question);
+        // console.log(data.question);
         break;
       case "Game":
-        console.log("State is 'Game'");
-        console.log(data.question);
+        // console.log(data.question);
 
         // Get current URL and check if in game
         let directories = window.location.pathname.split("/");
         let finalPath = directories[directories.length];
         if(finalPath !== "game.php") {
-          // Should redirect to game.
+          // Should redirect to game. Probably unnecessarily complex code for changing URL
           let targetPath = directories;
           console.log(targetPath)
           targetPath[targetPath.length-1] = "game.php";
@@ -36,21 +37,16 @@ function fetchUsersSSE(joinCode) {
           targetPath.forEach((pathItem, index) => {
             pathStr += pathItem;
             if (index !== targetPath.length - 1) {
-
               pathStr += "/";
             } else {
               console.log("last item: " + pathItem);
             }
-            
-          })
+          });
 
           pathStr += `?id=${joinCode}`;
           pathStr += `&question=${data.question}`;
-          console.log(targetPath);
-          console.log(pathStr);
 
           window.location= pathStr;
-
         }
         break;
     }
@@ -69,8 +65,4 @@ function fetchUsersSSE(joinCode) {
   evtSource.onmessage = (event) => {
     console.log(event.data);
   };
-
-  evtSource.addEventListener("test", (event) => {
-    console.log(`Received test message: ${event.data}`);
-  })
 }

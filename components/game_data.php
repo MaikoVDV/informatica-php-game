@@ -1,4 +1,6 @@
 <?php
+// Probably useless object, but I'm afraid of removing it because everything will probably break,
+// and I'm writing this sentence at 15:23, 7 minutes before I have to show this project.
 class GameData {
   public $join_code;
   public $host_username;

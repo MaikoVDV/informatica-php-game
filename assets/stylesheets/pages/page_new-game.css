@@ -10,6 +10,6 @@
 }
 
 .gamemode-button {
-  transition: background-image 0.3s;
-  background-size: contain !important;
+  transition: background-size 0.3s;
+  background-size: 0 0;
 }

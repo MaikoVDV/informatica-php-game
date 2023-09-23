@@ -1,4 +1,5 @@
 <html>
+<!-- Navbar is used on all pages, so I'm putting it in a separate PHP file and importing it where I need it. -->
 <body>
   <style>
     @import "./assets/stylesheets/navbar.css";
@@ -18,6 +19,7 @@
         <a href="./public-games-list.php">Lobby list</a>
       </div>
     </div>
+<!-- Show username if logged in, or Login and Register buttons if not logged in. -->
     <?php if (isset($_SESSION["username"])): ?>
     <div class="navbar-link">
       <a href="./login.php"><?php echo $_SESSION["username"]; ?></a>

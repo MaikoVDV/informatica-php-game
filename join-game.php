@@ -19,7 +19,9 @@ if(empty($_SESSION['user_id'])) {
   redirect_error("./login.php", "You need to log in to join a game.");
 }
 
+// If the user pressed join, the request method will be POST.
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
+  // Connect to the database.
   require "./database_manager/db_connect.php";
 
   $entered_code = $_POST['entered_code'];
@@ -38,15 +40,17 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
       }
     } else {
       // Couldn't find a game with the code entered.
-      throw new Exception("There isn't a game with join_code: $entered_code");
+      redirect_error("./join-game.php", "There isn't a game with join_code: $entered_code");
     }
 
   } catch (Exception $e) {
+    // Displaying an error if joining the game failed.
     echo $e;
     redirect_error("./join-game.php", "Failed to join game with code $entered_code. Please check that you have entered the right code.");
   }
 }
 ?>
+    <!-- Just a small form for entering the join code. Styling is handled by assets/stylesheets/modal.css -->
     <div class="main-content-wrapper">
       <div class="modal">
         <h1>Join game</h1>
