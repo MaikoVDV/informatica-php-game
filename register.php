@@ -61,15 +61,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         if (empty($serverError)) {
             redirect("./login.php");
         }
-        //if ($row = mysqli_fetch_assoc($query_result)) {
-        //  //echo "Found a user:<br>Found username: " .$row["username"] . ", password: ". $row["password"];
-        //  $requestError = $row;
-        //  $_SESSION['user_id'] = $row["id"];
-        //  $_SESSION['username'] = $row["username"];
-        //  $_SESSION['password'] = $row["password"];
-
-        //  //redirect("./home.php");
-        //}
     }
 
 } else {

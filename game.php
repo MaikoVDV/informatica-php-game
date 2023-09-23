@@ -110,9 +110,7 @@ $form_url = htmlspecialchars($_SERVER['PHP_SELF'])."?id=$join_code";
             </ul>
       </div>
       <script defer>
-        //fetchUsers(<?php echo $join_code; ?>);
         fetchQuestionSSE(<?php echo $join_code; ?>, <?php echo $question->current_game_index ?>);
-        // setInterval(fetchUsers, 5000, <?php echo $join_code ?>);
       </script>
     </div>
   </body>

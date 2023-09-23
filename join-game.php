@@ -1,11 +1,4 @@
 <!DOCTYPE html>
-<?php
-// ini_set('display_errors', 1);
-// error_reporting(E_ALL);
-
-// ini_set('session.cache_limiter', 'public');
-// session_cache_limiter(false);
-?>
 <html>
   <head>
     <title>Join game</title>

@@ -8,9 +8,3 @@ class SelectOption {
   }
 }
 ?>
-<!--
-<a class="big-button">
-  <p class="gamemode-title">Singleplayer</p>
-  <p class="gamemode-description">Play alone with pre-made questions</p>
-</a>
--->

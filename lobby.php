@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <?php
 session_start();
-// ini_set('display_errors', 1);
-// error_reporting(E_ALL);
-
-// ini_set('session.cache_limiter', 'public');
-// session_cache_limiter(false);
 ?>
 <html>
   <head>
@@ -67,9 +62,7 @@ if(unserialize($_SESSION['game_data'])->host_username === $_SESSION['username'])
       <h3>Category: <?php echo unserialize($_SESSION['game_data'])->question_category; ?></h3>
       <div id="users-list">
         <script defer>
-          //fetchUsers(<?php echo $join_code; ?>);
           fetchUsersSSE(<?php echo $join_code; ?>);
-          // setInterval(fetchUsers, 5000, <?php echo $join_code ?>);
         </script>
       </div>
 

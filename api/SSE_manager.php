@@ -19,17 +19,6 @@ require("./functions/fetch_question.php");
 
 $join_code = $_GET['join_code'];
 
-// $current_q = fetch_question($sql_conn, $join_code);
-// echo "data: before: $current_q\n\n";
-// echo "data: updating to: " . $current_q+1 ."\n\n";
-// $game_state_query = "UPDATE current_games SET current_question = " . $current_q+1 . " WHERE current_games.join_code=$join_code";
-// echo "data: query: $game_state_query\n\n";
-//
-// $game_state_result = mysqli_query($sql_conn, $game_state_query);
-//
-// $new_q = fetch_question($sql_conn, $join_code);
-// echo "data: after: $new_q\n\n";
-
 // Code here can't use sessions, because they cause extremely long loading with this interval-based loop.
 session_write_close();
 while(1) {
@@ -38,8 +27,6 @@ while(1) {
   // Sending messages
   echo_message("game_state", $game_state);
   echo_message("username_list", json_encode(fetch_users($sql_conn, $join_code)));
-
-  // echo_message("test", $_SESSION['testvar']);
 
   // After all the querying work has been done, flush the buffered echo messages to the client,
   // Check if the client is still connected (if not, break the loop)

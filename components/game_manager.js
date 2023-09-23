@@ -14,8 +14,6 @@ function fetchQuestionSSE(joinCode, currentQuestion) {
   // Update gamestate
   evtSource.addEventListener("current_question", (event) => {
     const data = JSON.parse(event.data);
-    // console.log("Current question: " + data);
-    // console.log("Stored question: " + currentQuestion);
     if (currentQuestion != data) {
       window.location.href = window.location.href;
     }
@@ -28,8 +26,7 @@ function fetchQuestionSSE(joinCode, currentQuestion) {
     let userList = document.createElement('div'); 
     JSON.parse(event.data).forEach(user => {
       username = user[0];
-      selectedAnswer = user[1]
-      // console.log(`Username: ${username}, Selected answer: ${selectedAnswer}`)
+      selectedAnswer = user[1];
       let userContainer = document.createElement('li');
       userContainer.classList.add("user-container")
 

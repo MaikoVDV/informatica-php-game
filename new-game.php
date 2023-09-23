@@ -4,11 +4,6 @@ session_start();
 include("./assets/utils.php");
 require("./database_manager/join_game_function.php");
 require "./database_manager/db_connect.php";
-// ini_set('display_errors', 1);
-// error_reporting(E_ALL);
-
-// ini_set('session.cache_limiter', 'public');
-// session_cache_limiter(false);
 
 include("./components/navbar.php");
 include_once("./components/big-select.php");
@@ -58,13 +53,11 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
   if (empty($chosen_gamemode)) {
     redirect_error("./new-game.php", "Please select a gamemode.");
   }
-  echo "Selected gamemode: $chosen_gamemode<br>";
   $join_code = random_int(100000, 999999);
   try {
     $existing_game_query = "SELECT join_code FROM `current_games` WHERE `host_user` = $user_id AND `game_state` <> 'Ended'";
     $existing_game_result = mysqli_query($sql_conn, $existing_game_query);
     if (mysqli_num_rows($existing_game_result) > 0) {
-      echo "Existing game.";
       $existing_game_join_code = mysqli_fetch_assoc($existing_game_result)["join_code"];
       redirect_error("./join-game.php", "It looks like you're already hosting a game. The join code is <b>$existing_game_join_code</b>");
       return;
@@ -78,8 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
       // This probably means the user is already the host of a currently running game.
       redirect_error("./join-game.php", "It looks like you're already hosting a game. Please enter the code for that game or wait for it to end.");
     } else {
-      echo "aaah";
-      //  redirect_error("./new-game.php", "Failed to create new game. Please try again.");
+      redirect_error("./new-game.php", "Failed to create new game. Please try again.");
     }
   }
   if ($game_create_result) {
@@ -98,7 +90,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     } catch (Exception $e) {
       redirect_error("./new-game.php", "Created a new game, but couldn't join it. Maybe try logging in again...");
       echo $e;
-      //redirect("./new-game.php?error=$serverError");
     }
   } 
 }

@@ -1,6 +1,5 @@
 function fetchUsersSSE(joinCode) {
   const userListContainer = document.getElementById("users-list");
-  // const evtSource = new EventSource(`./api/users_sse.php?join_code=${joinCode}`);
   const evtSource = new EventSource(`./api/SSE_manager.php?join_code=${joinCode}`);
 
   window.onbeforeunload = function() {
