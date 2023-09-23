@@ -1,10 +1,11 @@
 # Maiko's kahoot ripoff
 On this website you can play quizzes alone or with friends. Its a lot like [Kahoot]("https://kahoot.com"), but just works a little worse.
+This project was made from April to June of 2023 for the computer science class at Laar en Berg.
 
 ## Usage
 First, you need an account. Go to the registry page and enter a username and password. Don't use passwords you use on other websites, these passwords are **not** stored very securely. After you've made your account, go to the login page and enter your credentials.
 
-You can create or join quizzes. To create a quiz, go to Create Game and select "Singleplayer" or "Multiplayer".
+You can create or join quizzes. To create a quiz, go to Create Game, select "Singleplayer" or "Multiplayer" and the question category. Then, you'll be taken to the lobby and you'll be given a six-digit join code to share with your friends if you selected Multiplayer.
 
 If you'd rather join an existing quiz, ask a friend for the join code and enter it in Join Game.
 You can also find the codes for games in the Games List.
@@ -52,14 +53,3 @@ All styling is done in [assets/stylesheets](assets/stylesheets), organised by th
 Credentials for the database are stored in `.env`, but that file isn't included in this repository for security reasons.
 
 If you want a more in-depth look at the code, I've included some comments to get a rough idea of whats happening. But again, this project is quite disorganised, so I'm limited in the clarity I can provide.
-
-### Things learned
-* Server-Sent Events  
-  Basically a one-way connection to stream data from the server to a client. Used for lists of users in the lobby and the game
-* SQL queries, tables and constraints  
-  This was my first time working with SQL, so I learned the basics of all the things.
-  Mainly how to connect different tables with foreign keys.
-* Literally just PHP  
-  Again, this was my first PHP project, so I learned a lot. I've done some stuff with server-side rendering before, so I was familiar with the concept, but that was with a JavaScript framework, not with PHP.
-* Webhosting is painful  
-  I tried using infinity free, but apparently they block Server-Sent Events, so now the multiplayer is broken and my presentation probably wont be as good. :(
